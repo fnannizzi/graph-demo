@@ -1,4 +1,4 @@
-A<html>
+<html>
 <head>
 <meta charset="UTF-8">
 <!-- Include jQuery -->
@@ -10,7 +10,7 @@ A<html>
 <script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graph.js"></script>
 </head>
 <body>
-<hi>Hi there!</hi>
+
 <!-- Include my javascript code -->
 <script>
 window.fbAsyncInit = function() {
@@ -55,7 +55,7 @@ window.fbAsyncInit = function() {
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.name + ' ID: ' + response.id);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
