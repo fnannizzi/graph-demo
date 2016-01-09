@@ -1,4 +1,5 @@
-// All Facebook login code.
+// All Facebook login code. Ripped straight from the doc: 
+// https://developers.facebook.com/docs/facebook-login/web
 
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
