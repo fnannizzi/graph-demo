@@ -1,1 +1,0 @@
-web: node scripts/fb_login.js
