@@ -3,6 +3,7 @@
 function fetchFriendLists() {
   console.log('Welcome!  Fetching your information.... ');
   FB.api('/me/friendlists', function(response) {
-    console.log('Successful friendlist grab for: ' + response.id);
+  	console.log(response);
+    console.log('Successful friendlist grab';
   });
 }
