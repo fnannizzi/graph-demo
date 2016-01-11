@@ -16,7 +16,7 @@ function friendlist(id, name, members) {
 // of the Facebook API - only friends who have accepted certain permissions
 // and have logged in to your app will be listed. To get around this, we look
 // at 'friendlists' instead. 
-function getFriendlists() {
+/*function getFriendlists() {
   FB.api('/me/friendlists', function(response) {
   	if (response && !response.error)  {
 	  console.log('Successful friendlist grab');
@@ -29,7 +29,19 @@ function getFriendlists() {
 	  });
   	}
   });
+}*/
+
+function inboxTest() {
+  FB.api('/me/inbox', function(response) {
+    if (response && !response.error)  {
+      console.log('Successful inbox grab');
+      console.log(response);
+      var friendlists = [];
+      var listsExpected = response.data.length;
+    }
+  });
 }
+
 
 function getFriendlistName(id, friendlists, listsExpected) {
   FB.api(('/' + id + '?fields=name'), function(response) {
