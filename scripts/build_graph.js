@@ -14,7 +14,7 @@ function fetchFriendLists() {
   	if (response && !response.error)  {
 	  console.log('Successful friendlist grab');
 	  console.log(response);
-	  FB.api(('/' + response.data[0].id), function(response) {
+	  FB.api(('/me/' + response.data[0].id), function(response) {
   	    if (response && !response.error) {
           console.log('Successfully fetched friendlist test');
   	      console.log(response.name);
@@ -37,7 +37,7 @@ function getFriendListName(id, friendlists, listsExpected) {
   	  console.log(response.name);
   	  var newFriendlist = new friendlist(id, response.name);
   	  friendlists.push(newFriendlist);
-      if (friendlists.length == listsRemaining) {
+      if (friendlists.length == listsExpected) {
         gotAllFriendlists(friendlists);
       }
   	}
