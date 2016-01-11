@@ -19,9 +19,9 @@
 
 
     <!-- Include dracula library for drawing graphs -->
-    <script type="text/javascript" src="../../../packages/javascript/raphael/raphael.js"></script>
-    <script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graffle.js"></script>
-    <script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graph.js"></script>
+    <script type="text/javascript" src="raphael/raphael.js"></script>
+    <script type="text/javascript" src="dracula/js/dracula_graffle.js"></script>
+    <script type="text/javascript" src="dracula/js/dracula_graph.js"></script>
   </head>
 
   <body>
@@ -59,7 +59,7 @@
         <p>See how your Facebook friends are interconnected in this example of an undirected graph.</p>
         
         <!-- Display a Facebook login button -->
-        <fb:login-button scope="public_profile,email" onlogin="statusChangeCallback();" auto_logout_link="true">
+        <fb:login-button scope="public_profile,email,friendlists" onlogin="checkLoginState();">
         </fb:login-button>
         <div id="status">
         </div>
