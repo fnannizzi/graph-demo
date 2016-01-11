@@ -36,8 +36,9 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Include my javascript code -->
-    <script type="text/javascript" src="../scripts/build_graph.js"></script>
-    <script type="text/javascript" src="../scripts/fb_login.js"></script>
+    <script type="text/javascript" src="scripts/getFriendlistMembers.js"></script>
+    <script type="text/javascript" src="scripts/getFriendlistData.js"></script>
+    <script type="text/javascript" src="scripts/fb_login.js"></script>
 
     <!-- Create a simple navigation bar using Bootstrap. -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -63,6 +64,19 @@
         </fb:login-button>
         <div id="status">
         </div>
+      </div>
+
+
+      <!-- Dropdown menu for friend groups -->
+      <div class="dropdown theme-dropdown clearfix">
+        <a id="friendlistPicker" href="#" class="sr-only dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="friendlistPicker">
+          <li class="active"><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
       </div>
 
       <!-- Create a panel in which to display our demo. -->
