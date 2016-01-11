@@ -25,13 +25,13 @@ function createGraph(numNodes) {
   drawGraph(graph);
 }
 
-function drawGraph(friendGraph) {
+function drawGraph(graph) {
   // layout the graph using the Spring layout implementation
-  var layouter = new Graph.Layout.Spring(g);
+  var layouter = new Graph.Layout.Spring(graph);
   layouter.layout();
    
   // draw the graph using the RaphaelJS draw implementation
-  var renderer = new Graph.Renderer.Raphael('canvas', friendGraph, width, height);
+  var renderer = new Graph.Renderer.Raphael('canvas', graph, width, height);
   renderer.draw();
 }
 
