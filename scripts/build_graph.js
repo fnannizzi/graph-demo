@@ -27,7 +27,7 @@ function fetchFriendLists() {
 function getFriendListName(id) {
   var name;
   console.log('Fetching friendlist name');
-  FB.api('/me/id', function(response) {
+  FB.api(id, function(response) {
   	if (response && !response.error) {
       console.log('Successfully fetched friendlist');
   	  console.log(response);
