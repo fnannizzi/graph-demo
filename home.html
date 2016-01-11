@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graph.js"></script>
   </head>
 
-  <body role="document">
+  <body>
     <!-- Initialize the Facebook SDK -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -51,25 +51,27 @@
       </div>
     </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <h1>Theme example</h1>
-      <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
-    </div>
+    <div class="container theme-showcase" role="main">
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Theme example</h1>
+        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+      </div>
 
-    <!-- Display a Facebook login button -->
-    <fb:login-button scope="public_profile,email" onlogin="statusChangeCallback();" auto_logout_link="true">
-    </fb:login-button>
-    <div id="status">
-    </div>
+      <!-- Display a Facebook login button -->
+      <fb:login-button scope="public_profile,email" onlogin="statusChangeCallback();" auto_logout_link="true">
+      </fb:login-button>
+      <div id="status">
+      </div>
 
-    <!-- Create a panel in which to display our demo. -->
-    <div class="row">
-      <div class="panel panel-primary">
-        <div class="panel-body">
-          Demo goes here
+      <!-- Create a panel in which to display our demo. -->
+      <div class="row">
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            Demo goes here
+          </div>
+          <div class="panel-footer">Panel footer</div>
         </div>
-        <div class="panel-footer">Panel footer</div>
       </div>
     </div>
 
