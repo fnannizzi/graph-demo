@@ -15,27 +15,43 @@ function fetchFriendLists() {
 	  console.log('Successful friendlist grab');
 	  console.log(response);
 	  var friendlists = [];
+	  var listsRemaining = response.data.length;
+	  response.data.forEach(function(friendlistItem) {
+        getFriendListName(friendlistItem.id, friendlists);
+        listsRemaining -= 1;
+        if (listsRemaining === 0) {
+          gotAllFriendlists(friendlists);
+        }
+	  });
+
 	  for (index = 0; index < response.data.length; index++) {
-	  	var newFriendlist = new friendlist(response.data[index].id, getFriendListName(response.data[index].id));
-	  	friendlists.push(newFriendlist);
+	  	
 	  }
 	  console.log(friendlists)
   	}
   });
 }
 
-function getFriendListName(id) {
-  var name;
+function getFriendListName(id, friendlists) {
   console.log('Fetching friendlist name');
   FB.api(id, function(response) {
   	if (response && !response.error) {
       console.log('Successfully fetched friendlist');
   	  console.log(response);
-  	  name = response.name;
+  	  var newFriendlist = new friendlist(id, response.name);
+  	  friendlists.push(newFriendlist);
   	}
   	else {
   		console.log(response.error);
   	}
   });
-  return name;
 }
+
+function gotAllFriendlists(friendlists) {
+	console.log('SUCCESS');
+	console.log(friendlists);
+}
+
+
+
+
