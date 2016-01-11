@@ -17,7 +17,7 @@ function fetchFriendLists() {
 	  var friendlists = [];
 	  for (index = 0; index < response.data.length; index++) {
 	  	var newFriendlist = new friendlist(response.data[index].id, getFriendListName(response.data[index].id));
-	  	friendLists.push(newFriendlist);
+	  	friendlists.push(newFriendlist);
 	  }
 	  console.log(friendlists)
   	}
