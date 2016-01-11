@@ -34,7 +34,7 @@ function getFriendListName(id) {
   	  name = response.name;
   	}
   	else {
-  		console.log('ERROR in name: ' + response.error);
+  		console.log(response.error);
   	}
   });
   return name;
