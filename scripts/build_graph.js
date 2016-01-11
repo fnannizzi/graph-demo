@@ -29,11 +29,10 @@ function fetchFriendLists() {
 }
 
 function getFriendListName(id, friendlists, listsRemaining) {
-  console.log('Fetching friendlist name');
   FB.api(id, function(response) {
   	if (response && !response.error) {
       console.log('Successfully fetched friendlist');
-  	  console.log(response);
+  	  console.log(response.name);
   	  var newFriendlist = new friendlist(id, response.name);
   	  friendlists.push(newFriendlist);
   	  listsRemaining -= 1;
