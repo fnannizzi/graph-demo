@@ -21,8 +21,8 @@ function createGraph(numNodes) {
       }
     }
   }
-  
-  drawGraph(friendGraph);
+
+  drawGraph(graph);
 }
 
 function drawGraph(friendGraph) {
