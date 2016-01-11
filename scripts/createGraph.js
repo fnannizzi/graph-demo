@@ -19,8 +19,9 @@ function createGraph(numNodes) {
       else { // tails goes towards
         graph.addEdge(otherNode, nodeIndex, { directed : true } );
       }
-
-
+    }
+  }
+  
   drawGraph(friendGraph);
 }
 
