@@ -36,9 +36,7 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Include my javascript code -->
-    <script type="text/javascript" src="scripts/getFriendlistMembers.js"></script>
-    <script type="text/javascript" src="scripts/getFriendlistData.js"></script>
-    <script type="text/javascript" src="scripts/fb_login.js"></script>
+    <script type="text/javascript" src="scripts/createGraph.js"></script>
 
     <!-- Create a simple navigation bar using Bootstrap. -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -59,11 +57,6 @@
         <h1>Friend Relationship Graph</h1>
         <p>See how your Facebook friends are interconnected in this example of an undirected graph.</p>
         
-        <!-- Display a Facebook login button -->
-        <fb:login-button scope="public_profile,email,read_custom_friendlists,read_mailbox" onlogin="checkLoginState();">
-        </fb:login-button>
-        <div id="status">
-        </div>
       </div>
 
 
@@ -82,7 +75,7 @@
       <!-- Create a panel in which to display our demo. -->
       <div class="row">
         <div class="panel panel-primary">
-          <div class="panel-body">
+          <div class="panel-body" id="canvas">
             Demo goes here
           </div>
           <div class="panel-footer">Panel footer</div>
