@@ -21,7 +21,7 @@ function fetchFriendLists() {
   	    }
   	  });
 	  var friendlists = [];
-	  var listsRemaining = response.data.length;
+	  var listsExpected = response.data.length;
 	  response.data.forEach(function(friendlistItem) {
 	  	console.log(friendlistItem.id);
         getFriendListName(friendlistItem.id, friendlists, listsExpected);
