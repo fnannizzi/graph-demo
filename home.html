@@ -1,57 +1,77 @@
-<html>
-<head>
-<meta charset="UTF-8">
-<!-- Include jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Include Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Display a title in the browser tab -->
+    <title>Graph Demo</title>
 
-<!-- Include dracula library for drawing graphs -->
-<script type="text/javascript" src="../../../packages/javascript/raphael/raphael.js"></script>
-<script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graffle.js"></script>
-<script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graph.js"></script>
-</head>
-<body>
-<!-- Initialize the Facebook SDK -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=181649908695791";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<!-- Include my javascript code -->
-<script type="text/javascript" src="../scripts/fb_login.js"></script>
+    <!-- Include Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<!-- Create a simple navigation bar using Bootstrap. -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Graph Demo</a>
+    <!-- Include customized stylesheets -->
+    <link href="theme.css" rel="stylesheet">
+
+
+    <!-- Include dracula library for drawing graphs -->
+    <script type="text/javascript" src="../../../packages/javascript/raphael/raphael.js"></script>
+    <script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graffle.js"></script>
+    <script type="text/javascript" src="../../../packages/javascript/dracula/js/dracula_graph.js"></script>
+  </head>
+  
+  <body>
+    <!-- Initialize the Facebook SDK -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=181649908695791";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Include my javascript code -->
+    <script type="text/javascript" src="../scripts/fb_login.js"></script>
+
+    <!-- Create a simple navigation bar using Bootstrap. -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="">Graph Demo</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Demo</a></li>
+          <li><a href="https://github.com/fnannizzi">About Francesca Nannizzi</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <h1>Theme example</h1>
+      <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Demo</a></li>
-      <li><a href="https://github.com/fnannizzi">About Francesca Nannizzi</a></li>
-    </ul>
-  </div>
-</nav>
 
-<!-- Display a Facebook login button -->
-<fb:login-button scope="public_profile,email" onlogin="statusChangeCallback();" auto_logout_link="true">
-</fb:login-button>
-<div id="status">
-</div>
+    <!-- Display a Facebook login button -->
+    <fb:login-button scope="public_profile,email" onlogin="statusChangeCallback();" auto_logout_link="true">
+    </fb:login-button>
+    <div id="status">
+    </div>
 
-<!-- Create a panel in which to display our demo. -->
-<div class="panel panel-primary">
-  <div class="panel-body">
-    Demo goes here
-  </div>
-  <div class="panel-footer">Panel footer</div>
-</div>
+    <!-- Create a panel in which to display our demo. -->
+    <div class="row">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          Demo goes here
+        </div>
+        <div class="panel-footer">Panel footer</div>
+      </div>
+    </div>
 
-</body>
+  </body>
 </html>
