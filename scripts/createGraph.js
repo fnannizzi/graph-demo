@@ -1,10 +1,4 @@
-function redraw() {
-    layouter.layout();
-    renderer.draw();
-};
-
-function createAndShowGraph() {
-  var numNodes = 15;
+function createAndShowGraph(numNodes) {
   var graph = new Graph();
   createGraph(graph, numNodes);
   var renderer = drawGraph(graph);

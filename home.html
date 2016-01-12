@@ -26,8 +26,9 @@
 
     <!-- Include my javascript code -->
     <script type="text/javascript" src="scripts/helperFunctions.js"></script>
-    <script type="text/javascript" src="scripts/colorGraph.js"></script>
+    <script type="text/javascript" src="scripts/findShortestPath.js"></script>
     <script type="text/javascript" src="scripts/createGraph.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
   </head>
 
   <body>
@@ -49,21 +50,20 @@
       <div class="jumbotron">
         <h1>Dijkstra's Algorithm</h1>
         <p>This demo uses Dijkstra's algorithm to compute the shortest path from node A to each other node. The graph is randomly generated each time.</p>
-        <button type="button" class="btn btn-lg btn-primary" onclick="createAndShowGraph()">Primary</button>
       </div>
 
 
-      <!-- Dropdown menu for friend groups -->
-      <div class="dropdown theme-dropdown clearfix">
-        <a id="friendlistPicker" href="#" class="sr-only dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="friendlistPicker">
-          <li class="active"><a href="#">7</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
+      <!-- Input for number of nodes -->
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <label for="num_nodes">Number of nodes:</label>
+          <input type="number" class="form-control" id="num_nodes_input">
+        </div>
+        <button type="button" class="btn btn-md btn-primary" id="num_nodes_input_button">Generate Graph</button
+      </form>
+      <div id="bad_input_error"></div>
+      <br><br>
+
 
       <!-- Create a panel in which to display our demo. -->
       <div class="row">
