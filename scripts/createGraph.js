@@ -1,3 +1,4 @@
+
 function redraw() {
     layouter.layout();
     renderer.draw();
@@ -5,14 +6,18 @@ function redraw() {
 
 function createAndShowGraph() {
   var numNodes = 5;
-  graph = createGraph(numNodes);
-  drawGraph(graph);
+  var graph = new Graph();
+  createGraph(graph, numNodes);
+  var renderer = drawGraph(graph);
+
+  findShortestPathAndAnimate(graph, renderer, numNodes);
+
+  colorGraph(graph, renderer, numNodes);
 }
 
-// Loop over each friend in the friendlist, and draw connections
-function createGraph(numNodes) {
+function createGraph(graph, numNodes) {
   console.log('Creating graph');
-  var graph = new Graph();
+  addWeightedEdges(graph);
 
   for (nodeIndex = 0; nodeIndex < numNodes; nodeIndex++) {
   	graph.addNode(convertIndexToLetter(nodeIndex));
@@ -21,8 +26,10 @@ function createGraph(numNodes) {
 
   // Then loop over again to add the edges between the nodes.
   for (nodeIndex = 0; nodeIndex < numNodes; nodeIndex++) {
+    // TODO: fix overlapping edge problem
     // Generate a random number of edges
-    numEdges = Math.floor(Math.random() * Math.ceil(numNodes/2)) + 1;
+    numEdges = Math.floor(Math.random() * Math.ceil(numNodes/5) + 1);
+    console.log("NUMEDGES: " + numEdges);
     for (edgeIndex = 0; edgeIndex < numEdges; edgeIndex++) {
       var otherNode = chooseNode(nodeIndex, numNodes);
       var nodeName = convertIndexToLetter(nodeIndex);
@@ -30,15 +37,13 @@ function createGraph(numNodes) {
 
       // flip a coin to decide which direction the edge goes
       if (coinFlip()) { // heads goes away
-        graph.addEdge(nodeName, otherNodeName, { directed : true } );
+        graph.addEdge(nodeName, otherNodeName);
       }
       else { // tails goes towards
-        graph.addEdge(otherNodeName, nodeName, { directed : true } );
+        graph.addEdge(otherNodeName, nodeName);
       }
     }
   }
-
-  return graph;
 }
 
 function drawGraph(graph) {
@@ -51,36 +56,29 @@ function drawGraph(graph) {
   var height = 400;
   var renderer = new Graph.Renderer.Raphael('canvas', graph, width, height);
   renderer.draw();
+
+  return renderer;
 }
 
-function render(r, n) {
-  var label = r.text(0, 30, n.label).attr({opacity:0});
-  //the Raphael set is obligatory, containing all you want to display 
-  var set = r.set().push(
-      r.rect(-30, -13, 62, 86)
-        .attr({"fill": "#fa8",
-              "stroke-width": 2
-              , r : 9}))
-  .push(label);
-  // make the label show only on hover 
-  set.hover(
-    function mouseIn() {
-      label.animate({opacity:1,"fill-opacity":1}, 500);
-    },
-    function mouseOut() {
-       label.animate({opacity:0},300);
-    }
-  );
+// Borrowed from https://github.com/strathausen/dracula/blob/master/examples/algorithms.js
+function addWeightedEdges(graph) {
+  /* modify the addEdge function to attach random weights */
+  graph.addEdgeToGraph = graph.addEdge;
+  graph.addEdge = function(from, to, style) {
+    !style && (style = {});
+    weight = Math.floor(Math.random() * 10) + 1;
+    style = { label : weight,
+            "label-style" : {
+                "font-size": 40
+            }
+        };
+    style.weight = weight;
+    var edge = graph.addEdgeToGraph(from, to, style);
+    edge.weight = style.weight;
+    console.log("added edge of weight " + weight);
+  };
 }
 
-
-function convertIndexToLetter(index) {
-  return String.fromCharCode(65 + index);
-}
-
-function coinFlip() {
-  return (Math.floor(Math.random() * 2) == 0);
-}
 
 function chooseNode(nodeIndex, numNodes) {
   var node = nodeIndex;
