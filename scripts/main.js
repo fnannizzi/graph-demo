@@ -8,12 +8,13 @@ $(document).ready(function() {
 });
 
 function validateInput(input) {
-  if (isInt(input)) {
+  if (isInt(input) && input > 0) {
     console.log('input passed: ' + input);
     document.getElementById('bad_input_error').innerHTML = "";
     createAndShowGraph(input);
   }
   else {
-    document.getElementById('bad_input_error').innerHTML = "Please enter an integer for the number of nodes.";
+    document.getElementById('bad_input_error').innerHTML = "Please enter an integer larger than zero " + 
+    "for the number of nodes.";
   }
 }
