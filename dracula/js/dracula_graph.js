@@ -82,6 +82,7 @@ Graph.prototype = {
         this.edges.push(edge);
         // NOTE: Even directed edges are added to both nodes.
         t.edges.push(edge);
+        return edge;
     },
     
     /* TODO to be implemented
@@ -228,7 +229,7 @@ Graph.Renderer.Raphael.prototype = {
             var oBBox = node.shape.getBBox();
             var opoint = { x: oBBox.x + oBBox.width / 2, y: oBBox.y + oBBox.height / 2};
             node.shape.translate(Math.round(point[0] - opoint.x), Math.round(point[1] - opoint.y));
-            this.r.safari();
+            //this.r.safari();
             return node;
         }/* else, draw new nodes */
 
