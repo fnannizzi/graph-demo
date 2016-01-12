@@ -24,9 +24,8 @@ function colorGraph(graph, renderer, numNodes) {
   var raphaelObject = renderer.r;
 
   for (nodeIndex = 0; nodeIndex < numNodes; nodeIndex++) {
-    var currNode = graph.nodes[nodeIndex];
-    console.log(currNode);
-    currNode.shape[0].animate({fill:'green'},200);
+    var currNode = graph.nodes[convertIndexToLetter(nodeIndex)];
+    //currNode.shape[0].animate({fill:'green'},200);
   }
 }
 
