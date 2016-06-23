@@ -4,8 +4,6 @@ function createAndShowGraph(numNodes) {
   var renderer = drawGraph(graph);
 
   findShortestPathAndAnimate(graph, renderer, numNodes);
-
-  //colorGraph(graph, renderer, numNodes);
 }
 
 function createGraph(graph, numNodes) {
